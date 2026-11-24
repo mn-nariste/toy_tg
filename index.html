@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ky">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#EFE3D6">
+<meta property="og:title" content="Той чакыруу · 2-декабрь">
+<meta property="og:description" content="Сизди үй той жана уул тойубуздун кубанычына шерик болууга чакырабыз">
+<title>Үй той &amp; Уул той — чакыруу</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--iv:#FBF6F0;--bl:#F3E6DC;--bu:#6E1423;--bd:#4A0C18;--go:#E2C27F;--tx:#3A1B20;color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--iv);color:var(--tx);font-family:'Noto Sans',system-ui,sans-serif;overflow-x:hidden}
+body:not(.opened){overflow:hidden;height:100svh}
+.sf{font-family:'Noto Serif',Georgia,serif}.sc{font-family:'Marck Script','Noto Serif',cursive}
+/* cover */
+.cover{position:fixed;inset:0;z-index:50;background:#EFE3D6;perspective:1500px;overflow:hidden;transition:opacity .9s ease 2.4s,visibility 0s 3.3s}
+.opening .cover{opacity:0;visibility:hidden}.opened .cover{display:none}
+.glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,#FFF0BE 0%,#F5CB6C 35%,#D9A441 70%,#B98528 100%);opacity:0;transition:opacity .6s ease .6s}
+.opening .glow{opacity:1}
+.p{position:absolute;inset:0;transition:transform 1.1s cubic-bezier(.5,0,.2,1)}
+.pt{clip-path:polygon(0 0,100% 0,50% 50%);transform-origin:50% 0;background:linear-gradient(180deg,#FAF4EC,#F1E6DA);z-index:4}
+.pl{clip-path:polygon(0 0,50% 50%,0 100%);transform-origin:0 50%;background:#F1E6DA;z-index:3}
+.pr{clip-path:polygon(100% 0,100% 100%,50% 50%);transform-origin:100% 50%;background:#F1E6DA;z-index:3}
+.pb{clip-path:polygon(0 100%,50% 50%,100% 100%);transform-origin:50% 100%;background:linear-gradient(0deg,#EADCCE,#F1E6DA);z-index:2}
+.opening .pt{transform:rotateX(180deg);transition-delay:.9s}
+.opening .pl{transform:rotateY(-180deg);transition-delay:1.25s}
+.opening .pr{transform:rotateY(180deg);transition-delay:1.25s}
+.opening .pb{transform:rotateX(-180deg);transition-delay:1.5s}
+.deco{position:absolute;inset:0;z-index:5;pointer-events:none;transition:opacity .4s}
+.opening .deco{opacity:0}
+.deco svg{position:absolute;inset:0;width:100%;height:100%}
+.tap{position:absolute;z-index:6;left:0;right:0;top:calc(50% + 86px);text-align:center;font-style:italic;font-size:18px;color:var(--bu);transition:opacity .3s}
+.opening .tap{opacity:0}
+/* page */
+.hero{position:relative;min-height:100svh;padding:28px 20px 56px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse 90% 60% at 50% 0%,#F3E1D3,var(--iv) 70%);overflow:hidden}
+.chev{width:34px;height:40px;margin-bottom:16px;stroke:var(--bu);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;animation:nudge 1.8s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(8px);opacity:1}}
+.plaque{position:relative;width:min(340px,88vw);padding:92px 26px 44px;border-radius:999px 999px 30px 30px;background:radial-gradient(ellipse at 50% 0%,#8E1F32,var(--bu) 55%,var(--bd));color:#F8EBDD;text-align:center;box-shadow:0 30px 60px rgba(74,12,24,.35),0 0 90px rgba(226,194,127,.4);opacity:0;transform:translateY(90px)}
+.opened .plaque{transition:transform 1.4s cubic-bezier(.2,.7,.2,1) .2s,opacity 1s ease .2s;opacity:1;transform:none}
+.plaque:before{content:"";position:absolute;inset:10px;border:1px solid rgba(226,194,127,.8);border-radius:999px 999px 22px 22px;pointer-events:none}
+.eb{font-size:11px;letter-spacing:5px;color:var(--go);font-weight:600}
+.names{margin:14px 0 0;font-size:46px;line-height:1.15;overflow-wrap:break-word;color:#FFF3E0;font-weight:400}
+.names small{display:block;font-size:26px;color:var(--go)}
+.pl2{margin-top:20px;font-style:italic;font-size:16px;line-height:1.5}
+.dt{margin-top:22px;font-size:34px;font-weight:600;letter-spacing:6px;color:var(--go)}
+.dm{font-size:12px;letter-spacing:5px;margin-top:6px}
+.sec{padding:84px 24px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.alt{background:var(--bl)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}.rv.in{opacity:1;transform:none}
+h2{margin:0;font-weight:600;font-size:30px;color:var(--bu)}
+.lbl{font-size:12px;letter-spacing:4px;color:var(--bu);font-weight:600}
+.poem{margin:24px 0 0;max-width:420px;font-style:italic;font-size:23px;line-height:1.75;color:var(--bd)}
+.orn{width:200px;height:14px;margin:26px 0 0;fill:none;stroke:#B8893A;stroke-width:1.3}
+.det{margin-top:34px;display:flex;flex-direction:column;gap:30px;width:100%;max-width:380px}
+.det div.i svg{width:28px;height:28px;stroke:var(--go);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.det .v{margin-top:8px;font-size:22px;line-height:1.45;color:var(--bd)}
+.btn{margin-top:36px;display:inline-block;padding:17px 36px;border-radius:999px;background:var(--bu);color:#FBEFE0;text-decoration:none;font-weight:600;letter-spacing:1px;box-shadow:0 10px 24px rgba(74,12,24,.3)}
+.tiles{margin-top:26px;display:flex;gap:10px;justify-content:center}
+.tile{width:74px;padding:16px 0 12px;border:1px solid rgba(110,20,35,.35);border-radius:12px;background:rgba(255,255,255,.6)}
+.tile b{display:block;font-family:'Noto Serif',serif;font-size:32px;line-height:1;color:var(--bu)}
+.tile small{display:block;margin-top:6px;font-size:10px;letter-spacing:2px;color:var(--bd)}
+.end{background:radial-gradient(ellipse at 50% 100%,#8E1F32,var(--bd));color:#F8EBDD}
+.end .nm{margin-top:14px;font-size:54px;line-height:1.1;color:#FFF3E0}
+.grain{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:60;opacity:.09;mix-blend-mode:multiply}
+@keyframes shim{to{background-position:200% 50%}}
+.foil{background:linear-gradient(100deg,#F6E3AE,#C9A057 40%,#F6E3AE 65%,#C9A057);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shim 7s linear infinite}
+.ct,.cb{position:absolute;z-index:5;left:0;right:0;text-align:center;color:var(--bu);pointer-events:none;transition:opacity .4s}
+.ct{top:10%;font-size:46px}.cb{bottom:8%;font-size:14px;letter-spacing:4px}
+.opening .ct,.opening .cb{opacity:0}
+.petals{display:none}.opened .petals{display:block}
+.pet{position:absolute;top:-30px;width:12px;height:16px;border-radius:70% 0 70% 0;background:#E3A9A6;opacity:0;animation:fall linear infinite;pointer-events:none}
+@keyframes fall{0%{transform:translate3d(0,-30px,0) rotate(0);opacity:0}10%{opacity:.85}100%{transform:translate3d(70px,105svh,0) rotate(400deg);opacity:0}}
+.med{position:absolute;top:30px;left:50%;width:50px;height:50px;margin-left:-25px;border:1px solid var(--go);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--go);font-size:18px}
+.pf{display:block;margin:20px auto 0;width:150px;height:14px;fill:none;stroke:var(--go);stroke-width:1.2}
+h2:after{content:"";display:block;width:56px;height:2px;margin:14px auto 0;background:linear-gradient(90deg,transparent,#B8893A,transparent)}
+.det{gap:18px}
+.det>div{padding:26px 20px;border:1px solid rgba(110,20,35,.25);border-radius:20px;background:rgba(255,255,255,.7);box-shadow:0 14px 30px rgba(74,12,24,.08)}
+.det div.i{width:58px;height:58px;margin:0 auto 14px;border-radius:50%;background:var(--bu);display:flex;align-items:center;justify-content:center}
+.tile{background:var(--bu);border-color:var(--bu)}.tile b{color:var(--go)}.tile small{color:#F3DDC9}
+.end .nm{font-size:58px}
+.uru{margin-top:16px;font-style:italic;font-size:18px;color:#F3DDC9}
+.poem span{display:block;opacity:0;transform:translateY(14px);transition:opacity .9s ease calc(var(--i)*.4s + .3s),transform .9s ease calc(var(--i)*.4s + .3s)}
+.rv.in .poem span{opacity:1;transform:none}
+.band{display:block;fill:none;stroke:#B8893A;stroke-width:1.2}
+.sec>.band{width:100%;margin:-54px 0 44px}
+.cor{position:absolute;width:84px;height:84px;fill:none;stroke:#B8893A;stroke-width:1.2;opacity:.75;pointer-events:none}
+.c1{left:14px;top:14px}.c2{right:14px;top:14px;transform:scaleX(-1)}.c3{left:14px;bottom:14px;transform:scaleY(-1)}.c4{right:14px;bottom:14px;transform:scale(-1)}
+
+.dc{margin-top:30px;width:100%;max-width:360px;border-radius:26px;background:#fff;overflow:hidden;box-shadow:0 20px 44px rgba(74,12,24,.14);border:1px solid rgba(184,137,58,.5)}
+.dc .mo{background:var(--bu);color:var(--go);letter-spacing:6px;font-size:13px;font-weight:600;padding:12px 0}
+.dc .dy{margin-top:16px;font-size:88px;line-height:1;color:var(--bu);font-weight:600}
+.dc .wk{letter-spacing:5px;font-size:12px;color:var(--bd);margin:8px 0 22px}
+.dr{display:flex;gap:16px;align-items:center;text-align:left;padding:18px 24px;border-top:1px solid rgba(184,137,58,.35)}
+.dr svg{flex:none;width:28px;height:28px;stroke:var(--bu);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.dr .lbl{font-size:11px}.dr .v{font-size:18px;line-height:1.4;color:var(--bd);margin-top:3px}
+.btn{position:relative;overflow:hidden}
+.btn:after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);animation:sheen 4s ease-in-out infinite}
+@keyframes sheen{0%,60%{left:-60%}100%{left:130%}}
+.btn.o{background:transparent;color:var(--bu);box-shadow:none;border:1.5px solid var(--bu)}.btn.o:after{display:none}
+.med{animation:flt 5s ease-in-out infinite}@keyframes flt{50%{transform:translateY(-4px)}}
+.beat{animation:beat 1.8s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.12)}}
+.rv .orn path{stroke-dasharray:200;stroke-dashoffset:200;transition:stroke-dashoffset 2s ease .8s}.rv.in .orn path{stroke-dashoffset:0}
+
+.alt{position:relative;overflow:hidden}
+.sps{position:absolute;inset:0;pointer-events:none}
+.sp{position:absolute;width:var(--s);height:var(--s);background:#D4A84A;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);opacity:0;animation:twk 3.4s ease-in-out infinite var(--d)}
+@keyframes twk{0%,100%{opacity:0;transform:scale(.3) rotate(0)}50%{opacity:.95;transform:scale(1.1) rotate(90deg)}}
+.dc{position:relative;z-index:1;transform-origin:50% 0;transform:perspective(900px) rotateX(-75deg);opacity:0;transition:transform 1.5s cubic-bezier(.2,.8,.2,1) .3s,opacity .8s ease .3s}
+.rv.in .dc{transform:perspective(900px) rotateX(0);opacity:1}
+.dy.foil{display:inline-block}
+.clk path:last-child{transform-origin:12px 12px;animation:hand 8s linear infinite}
+@keyframes hand{to{transform:rotate(360deg)}}
+.pin{animation:hop 2.8s ease-in-out infinite}
+@keyframes hop{0%,60%,100%{transform:translateY(0)}72%{transform:translateY(-6px)}84%{transform:translateY(0)}92%{transform:translateY(-2px)}}
+.gn{display:block;margin:26px auto 0;width:min(320px,100%);padding:14px 18px;border:1px solid rgba(110,20,35,.4);border-radius:999px;background:#fff;font:inherit;text-align:center;color:var(--tx)}
+
+
+.cover{background:#F7EDE3}
+.pt{background:linear-gradient(180deg,#FFFFFF,#FAF2EA)}
+.pl{background:linear-gradient(90deg,#F1E1D2,#FBF3EB 88%)}
+.pr{background:linear-gradient(270deg,#F1E1D2,#FBF3EB 88%)}
+.pb{background:linear-gradient(0deg,#F2E5D8,#FBF5EE)}
+.glow{background:linear-gradient(180deg,#F8C640 0%,#FFE8A0 28%,#F5F4FF 50%,#FFE8A0 72%,#F8C640 100%);transition:opacity .6s ease .3s}
+.p{transition:transform 1.3s cubic-bezier(.45,0,.2,1)}
+.opening .pt{transform:rotateX(180deg);transition-delay:.6s}
+.opening .pb{transform:rotateX(-180deg);transition-delay:.85s}
+.opening .pl,.opening .pr{transform:none}
+.seal{position:absolute;z-index:6;left:50%;top:50%;width:116px;height:116px;margin:-58px 0 0 -58px;padding:0;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent;filter:drop-shadow(0 10px 12px rgba(60,10,20,.45));transition:filter .25s,transform .25s}
+.seal svg{display:block;width:100%;height:100%}
+.seal:active{filter:drop-shadow(0 6px 8px rgba(60,10,20,.35)) brightness(1.4) saturate(.65);transform:scale(.95)}
+.seal:before{content:"";position:absolute;inset:-12px;border-radius:50%;border:1.5px solid rgba(190,60,80,.55);animation:rip 2.4s ease-out infinite}
+.opening .seal{pointer-events:none;animation:sealUp 2.3s cubic-bezier(.45,0,.2,1) .35s forwards}
+.opening .seal:before{display:none}
+@keyframes sealUp{to{transform:translateY(-58vh) scale(.92)}}
+.tap{top:calc(50% + 84px);font-size:16px}
+
+.glow{background:radial-gradient(ellipse at 50% 50%,#FFFCF2 0%,#FCEBC4 45%,#F2D08E 100%)}
+.cover{transition:opacity .9s ease 2.1s,visibility 0s 3s}
+.opening .seal{animation:sealOff .9s ease forwards}
+@keyframes sealOff{0%{transform:scale(1);opacity:1}35%{transform:scale(1.12);opacity:1}100%{transform:scale(1.35) translateY(-18px);opacity:0}}
+.plaque{transform:translateY(150px) scale(.88)}
+.opening .plaque{opacity:1;transform:none;z-index:55;transition:transform 1.7s cubic-bezier(.2,.75,.2,1) 1s,opacity 1s ease 1s}
+.opened .plaque{z-index:auto}
+@media(min-width:700px){.hero,.sec{padding-left:40px;padding-right:40px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important;transition-delay:0s!important}}
+</style>
+</head>
+<body>
+<svg class="grain" aria-hidden="true"><filter id="gn"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#gn)"/></svg>
+<div class="cover" id="cover">
+<div class="glow"></div>
+<div class="p pb"></div><div class="p pl"></div><div class="p pr"></div><div class="p pt"></div>
+<div class="deco" aria-hidden="true">
+<svg viewBox="0 0 100 100" preserveAspectRatio="none" fill="none" stroke="#D9BE96" stroke-width="1.1"><path vector-effect="non-scaling-stroke" d="M0 0L50 50L100 0M0 100L50 50L100 100"/></svg>
+<svg width="100%" height="100%" fill="none"><defs><pattern id="tp" width="90" height="180" patternUnits="userSpaceOnUse"><g transform="translate(1.2 1.2)" stroke="#fff" stroke-width="1.4" opacity=".9"><path d="M45 0C28 30 62 62 45 92S28 152 45 182"/><path d="M45 30c13 -2 21 -9 23 -19 c-12 0 -22 7 -23 19z"/><path d="M45 62c-13 -2 -21 -9 -23 -19 c12 0 22 7 23 19z"/><path d="M45 98c13 -2 21 -9 23 -19 c-12 0 -22 7 -23 19z"/><path d="M45 132c-13 -2 -21 -9 -23 -19 c12 0 22 7 23 19z"/><path d="M45 162c13 -2 21 -9 23 -19 c-12 0 -22 7 -23 19z"/><circle cx="45" cy="92" r="2.2"/></g><g stroke="#DFC9B4" stroke-width="1.1" opacity=".85"><path d="M45 0C28 30 62 62 45 92S28 152 45 182"/><path d="M45 30c13 -2 21 -9 23 -19 c-12 0 -22 7 -23 19z"/><path d="M45 62c-13 -2 -21 -9 -23 -19 c12 0 22 7 23 19z"/><path d="M45 98c13 -2 21 -9 23 -19 c-12 0 -22 7 -23 19z"/><path d="M45 132c-13 -2 -21 -9 -23 -19 c12 0 22 7 23 19z"/><path d="M45 162c13 -2 21 -9 23 -19 c-12 0 -22 7 -23 19z"/><circle cx="45" cy="92" r="2.2"/></g></pattern></defs><rect width="100%" height="100%" fill="url(#tp)"/></svg>
+</div>
+<div class="ct sc">Чакыруу</div><div class="cb sf"><div style="font-size:11px">ТОЙ ЭЭЛЕРИ</div><div class="sc" style="font-size:28px;letter-spacing:0;margin:2px 0 12px">Талантбек &amp; Гулзада</div><div style="font-size:12px">ҮЙ ТОЙ &amp; УУЛ ТОЙ · 2-ДЕКАБРЬ</div></div>
+<button class="seal" id="seal" aria-label="Чакырууну ачуу"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><radialGradient id="wx" cx="35%" cy="28%" r="80%"><stop offset="0" stop-color="#B8384A"/><stop offset=".55" stop-color="#7C1627"/><stop offset="1" stop-color="#4A0C18"/></radialGradient><radialGradient id="wi" cx="40%" cy="30%" r="75%"><stop offset="0" stop-color="#9C2A3C"/><stop offset="1" stop-color="#5E0F1E"/></radialGradient><linearGradient id="gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBEBC2"/><stop offset=".5" stop-color="#E2C27F"/><stop offset="1" stop-color="#B8893A"/></linearGradient></defs><path d="M113.1 60.0 L114.0 61.9 L114.7 63.8 L114.9 65.8 L114.7 67.7 L114.0 69.5 L113.0 71.3 L111.6 72.9 L110.0 74.3 L108.4 75.7 L106.8 77.1 L105.4 78.4 L104.2 79.7 L103.3 81.1 L102.5 82.6 L101.9 84.2 L101.4 85.9 L100.9 87.6 L100.3 89.3 L99.7 91.0 L99.0 92.7 L98.1 94.3 L97.0 95.8 L95.9 97.1 L94.6 98.4 L93.2 99.6 L91.8 100.7 L90.2 101.6 L88.7 102.5 L87.0 103.2 L85.3 103.9 L83.6 104.4 L81.9 104.9 L80.2 105.5 L78.6 106.0 L77.0 106.7 L75.4 107.5 L73.9 108.5 L72.4 109.6 L70.8 110.8 L69.2 112.0 L67.5 113.1 L65.7 114.0 L63.8 114.5 L61.9 114.7 L60.0 114.4 L58.1 113.7 L56.3 112.6 L54.6 111.3 L53.0 109.9 L51.5 108.4 L50.0 107.1 L48.5 106.0 L47.0 105.3 L45.4 104.8 L43.8 104.6 L42.0 104.6 L40.1 104.6 L38.2 104.7 L36.2 104.7 L34.3 104.5 L32.5 104.1 L30.7 103.4 L29.1 102.5 L27.6 101.4 L26.3 100.2 L25.0 98.9 L23.9 97.4 L22.8 95.9 L21.8 94.4 L20.8 92.9 L19.9 91.3 L19.0 89.8 L18.1 88.2 L17.3 86.7 L16.4 85.2 L15.4 83.7 L14.4 82.2 L13.3 80.8 L12.2 79.3 L11.0 77.8 L9.9 76.3 L8.9 74.7 L8.1 72.9 L7.6 71.1 L7.4 69.3 L7.6 67.4 L8.2 65.4 L9.0 63.6 L10.0 61.7 L11.1 60.0 L12.1 58.3 L12.9 56.7 L13.5 55.1 L13.7 53.5 L13.6 51.8 L13.2 50.1 L12.6 48.2 L12.0 46.2 L11.4 44.2 L11.0 42.2 L10.9 40.1 L11.1 38.2 L11.6 36.4 L12.4 34.7 L13.6 33.2 L14.9 31.8 L16.3 30.5 L17.8 29.4 L19.3 28.2 L20.8 27.1 L22.3 26.0 L23.7 24.9 L25.0 23.8 L26.3 22.6 L27.7 21.5 L29.0 20.3 L30.3 19.1 L31.6 17.9 L33.0 16.7 L34.3 15.5 L35.7 14.4 L37.2 13.3 L38.8 12.3 L40.4 11.5 L42.1 10.9 L43.9 10.5 L45.8 10.5 L47.7 10.7 L49.6 11.0 L51.5 11.6 L53.3 12.1 L55.0 12.5 L56.7 12.8 L58.3 12.7 L60.0 12.4 L61.7 11.8 L63.4 10.9 L65.3 9.9 L67.2 8.9 L69.2 8.0 L71.2 7.3 L73.2 7.1 L75.1 7.2 L77.0 7.8 L78.7 8.7 L80.2 10.0 L81.6 11.5 L82.9 13.0 L84.1 14.6 L85.3 16.1 L86.5 17.6 L87.8 18.8 L89.1 20.0 L90.4 21.1 L91.8 22.1 L93.3 23.1 L94.7 24.0 L96.2 25.1 L97.6 26.2 L98.9 27.3 L100.3 28.5 L101.5 29.8 L102.7 31.2 L103.8 32.7 L104.7 34.2 L105.5 35.8 L106.1 37.5 L106.5 39.3 L106.7 41.1 L106.9 42.9 L106.9 44.8 L107.0 46.5 L107.1 48.3 L107.4 49.9 L107.9 51.6 L108.6 53.2 L109.6 54.8 L110.7 56.5 L111.9 58.2Z" fill="url(#wx)"/><path d="M113.1 60.0 L114.0 61.9 L114.7 63.8 L114.9 65.8 L114.7 67.7 L114.0 69.5 L113.0 71.3 L111.6 72.9 L110.0 74.3 L108.4 75.7 L106.8 77.1 L105.4 78.4 L104.2 79.7 L103.3 81.1 L102.5 82.6 L101.9 84.2 L101.4 85.9 L100.9 87.6 L100.3 89.3 L99.7 91.0 L99.0 92.7 L98.1 94.3 L97.0 95.8 L95.9 97.1 L94.6 98.4 L93.2 99.6 L91.8 100.7 L90.2 101.6 L88.7 102.5 L87.0 103.2 L85.3 103.9 L83.6 104.4 L81.9 104.9 L80.2 105.5 L78.6 106.0 L77.0 106.7 L75.4 107.5 L73.9 108.5 L72.4 109.6 L70.8 110.8 L69.2 112.0 L67.5 113.1 L65.7 114.0 L63.8 114.5 L61.9 114.7 L60.0 114.4 L58.1 113.7 L56.3 112.6 L54.6 111.3 L53.0 109.9 L51.5 108.4 L50.0 107.1 L48.5 106.0 L47.0 105.3 L45.4 104.8 L43.8 104.6 L42.0 104.6 L40.1 104.6 L38.2 104.7 L36.2 104.7 L34.3 104.5 L32.5 104.1 L30.7 103.4 L29.1 102.5 L27.6 101.4 L26.3 100.2 L25.0 98.9 L23.9 97.4 L22.8 95.9 L21.8 94.4 L20.8 92.9 L19.9 91.3 L19.0 89.8 L18.1 88.2 L17.3 86.7 L16.4 85.2 L15.4 83.7 L14.4 82.2 L13.3 80.8 L12.2 79.3 L11.0 77.8 L9.9 76.3 L8.9 74.7 L8.1 72.9 L7.6 71.1 L7.4 69.3 L7.6 67.4 L8.2 65.4 L9.0 63.6 L10.0 61.7 L11.1 60.0 L12.1 58.3 L12.9 56.7 L13.5 55.1 L13.7 53.5 L13.6 51.8 L13.2 50.1 L12.6 48.2 L12.0 46.2 L11.4 44.2 L11.0 42.2 L10.9 40.1 L11.1 38.2 L11.6 36.4 L12.4 34.7 L13.6 33.2 L14.9 31.8 L16.3 30.5 L17.8 29.4 L19.3 28.2 L20.8 27.1 L22.3 26.0 L23.7 24.9 L25.0 23.8 L26.3 22.6 L27.7 21.5 L29.0 20.3 L30.3 19.1 L31.6 17.9 L33.0 16.7 L34.3 15.5 L35.7 14.4 L37.2 13.3 L38.8 12.3 L40.4 11.5 L42.1 10.9 L43.9 10.5 L45.8 10.5 L47.7 10.7 L49.6 11.0 L51.5 11.6 L53.3 12.1 L55.0 12.5 L56.7 12.8 L58.3 12.7 L60.0 12.4 L61.7 11.8 L63.4 10.9 L65.3 9.9 L67.2 8.9 L69.2 8.0 L71.2 7.3 L73.2 7.1 L75.1 7.2 L77.0 7.8 L78.7 8.7 L80.2 10.0 L81.6 11.5 L82.9 13.0 L84.1 14.6 L85.3 16.1 L86.5 17.6 L87.8 18.8 L89.1 20.0 L90.4 21.1 L91.8 22.1 L93.3 23.1 L94.7 24.0 L96.2 25.1 L97.6 26.2 L98.9 27.3 L100.3 28.5 L101.5 29.8 L102.7 31.2 L103.8 32.7 L104.7 34.2 L105.5 35.8 L106.1 37.5 L106.5 39.3 L106.7 41.1 L106.9 42.9 L106.9 44.8 L107.0 46.5 L107.1 48.3 L107.4 49.9 L107.9 51.6 L108.6 53.2 L109.6 54.8 L110.7 56.5 L111.9 58.2Z" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.2" transform="translate(-.6 -.6)"/><circle cx="60" cy="60" r="40" fill="url(#wi)" stroke="#3F0914" stroke-opacity=".55" stroke-width="2"/><circle cx="60" cy="60" r="40" fill="none" stroke="#C9566A" stroke-opacity=".5" stroke-width="1" transform="translate(.8 .8)"/><text x="60" y="73" text-anchor="middle" font-family="Marck Script,Noto Serif,cursive" font-size="38" fill="#3A0711" opacity=".6" transform="translate(1 1.4)">Т&amp;Г</text><text x="60" y="73" text-anchor="middle" font-family="Marck Script,Noto Serif,cursive" font-size="38" fill="url(#gd)">Т&amp;Г</text><ellipse cx="42" cy="30" rx="17" ry="8" fill="#fff" opacity=".2" transform="rotate(-28 42 30)"/></svg></button>
+<div class="tap sf">Ачуу үчүн мөөрдү басыңыз</div>
+</div>
+
+<main>
+<section class="hero">
+<svg class="cor c1" viewBox="0 0 100 100" aria-hidden="true"><path d="M4 96V30C4 14 14 4 30 4H96M16 96V40C16 26 26 16 40 16H96"/><circle cx="30" cy="30" r="5"/></svg><svg class="cor c2" viewBox="0 0 100 100" aria-hidden="true"><path d="M4 96V30C4 14 14 4 30 4H96M16 96V40C16 26 26 16 40 16H96"/><circle cx="30" cy="30" r="5"/></svg><svg class="cor c3" viewBox="0 0 100 100" aria-hidden="true"><path d="M4 96V30C4 14 14 4 30 4H96M16 96V40C16 26 26 16 40 16H96"/><circle cx="30" cy="30" r="5"/></svg><svg class="cor c4" viewBox="0 0 100 100" aria-hidden="true"><path d="M4 96V30C4 14 14 4 30 4H96M16 96V40C16 26 26 16 40 16H96"/><circle cx="30" cy="30" r="5"/></svg>
+<div class="petals" aria-hidden="true"><i class="pet" style="left:6%;animation-duration:9s"></i><i class="pet" style="left:20%;animation-duration:12s;animation-delay:2s"></i><i class="pet" style="left:38%;animation-duration:10s;animation-delay:5s"></i><i class="pet" style="left:55%;animation-duration:13s;animation-delay:1s"></i><i class="pet" style="left:72%;animation-duration:9s;animation-delay:4s"></i><i class="pet" style="left:88%;animation-duration:11s;animation-delay:3s"></i></div>
+<svg class="chev" viewBox="0 0 34 40" aria-hidden="true"><path d="M6 6l11 9 11-9M6 20l11 9 11-9"/></svg>
+<div class="plaque"><div class="med sc">Т&amp;Г</div>
+<div class="eb">ҮЙ ТОЙ &amp; УУЛ ТОЙ</div>
+<div class="uru sf">Урматтуу</div>
+<h1 class="names sc foil" id="guest">меймандар</h1>
+<div class="pl2 sf">Сизди үй той жана уул тойубуздун кубанычына шерик болууга чакырабыз</div>
+<div class="dt sf foil">02·12·26</div>
+<div class="dm">2-ДЕКАБРЬ</div>
+<svg class="pf" viewBox="0 0 150 14" aria-hidden="true"><path d="M0 7H58M92 7H150M75 1L82 7 75 13 68 7Z"/></svg>
+<div class="eb" style="margin-top:22px">ТОЙ ЭЭЛЕРИ</div>
+<div class="sc" style="margin-top:6px;font-size:26px;color:#FFF3E0">Талантбек &amp; Гулзада</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="rv"><h2 class="sc" style="font-size:44px;font-weight:400">Кымбаттуу меймандар!</h2>
+<p class="poem sf"><span style="--i:0">Ак бата менен үйүбүзгө,</span><span style="--i:1">Кут орносун төрүбүзгө.</span><span style="--i:2">Уул той, үй той майрамына,</span><span style="--i:3">Келиңиздер төрүбүзгө! ❤️</span></p>
+<svg class="orn" viewBox="0 0 200 14" aria-hidden="true"><path d="M0 7H80M120 7H200M100 1L107 7 100 13 93 7Z"/></svg></div>
+</section>
+
+<section class="sec alt">
+<div class="sps" aria-hidden="true"><i class="sp" style="left:6%;top:6%;--s:14px;--d:0s"></i><i class="sp" style="left:88%;top:5%;--s:10px;--d:1.1s"></i><i class="sp" style="left:94%;top:22%;--s:16px;--d:2.2s"></i><i class="sp" style="left:4%;top:30%;--s:10px;--d:0.6s"></i><i class="sp" style="left:10%;top:52%;--s:15px;--d:1.8s"></i><i class="sp" style="left:92%;top:48%;--s:11px;--d:0.3s"></i><i class="sp" style="left:5%;top:74%;--s:12px;--d:2.6s"></i><i class="sp" style="left:90%;top:70%;--s:15px;--d:1.4s"></i><i class="sp" style="left:14%;top:92%;--s:11px;--d:0.9s"></i><i class="sp" style="left:80%;top:94%;--s:14px;--d:2s"></i><i class="sp" style="left:50%;top:2%;--s:9px;--d:1.6s"></i><i class="sp" style="left:52%;top:97%;--s:10px;--d:0.4s"></i></div>
+<svg class="band" height="30" aria-hidden="true"><defs><pattern id="kb" width="60" height="30" patternUnits="userSpaceOnUse"><path d="M30 4L38 15 30 26 22 15Z"/><path d="M22 15C14 15 12 7 6 7M38 15C46 15 48 7 54 7"/></pattern></defs><rect width="100%" height="30" fill="url(#kb)"/></svg>
+<div class="rv" style="display:flex;flex-direction:column;align-items:center;width:100%">
+<svg width="120" height="92" viewBox="0 0 120 92" aria-hidden="true" fill="none" stroke="#6E1423" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 48L60 10l48 38M24 42v40h72V42M50 82V58h20v24M32 52h10v10H32zM78 52h10v10H78zM82 22V12h10v20"/></svg>
+<h2 class="sf" style="margin-top:20px">Той дареги</h2>
+<div class="dc">
+<div class="mo">ДЕКАБРЬ · 2026</div>
+<div class="dy sf foil">2</div>
+<div class="wk">СРЕДА</div>
+<div class="dr rv" style="transition-delay:.2s"><svg class="pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><div class="lbl">ДАРЕГИ</div><div class="v sf">Ош, Каратай айылы,<br>Абдуллаев Жума көчөсү, 8-үй</div></div></div>
+</div>
+<a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Ош+Каратай+айылы+Абдуллаев+Жума+көчөсү+8" target="_blank" rel="noopener">Картадан көрүү</a>
+</div>
+</section>
+
+<section class="sec">
+<div class="rv"><h2 class="sf">Тойго чейин</h2>
+<div class="tiles"><div class="tile"><b id="d">00</b><small>КҮН</small></div><div class="tile"><b id="h">00</b><small>САА</small></div><div class="tile"><b id="m">00</b><small>МҮН</small></div><div class="tile"><b id="s">00</b><small>СЕК</small></div></div></div>
+</section>
+
+<section class="sec alt">
+<div class="rv"><h2 class="sf">Жообуңузду күтөбүз</h2>
+<p class="sf" style="max-width:340px;margin:22px auto 0;font-size:18px;line-height:1.6;font-style:italic">Дасторконду даярдоо үчүн, келе турганыңызды билдирип койсоңуз, чоң рахмат.</p>
+<input id="gn" class="gn" placeholder="Аты-жөнүңүздү жазыңыз" style="display:none">
+<a class="btn" id="yes" href="#" target="_blank" rel="noopener">Кубанып катышам</a><br>
+<a class="btn o" id="no" href="#" target="_blank" rel="noopener" style="margin-top:16px">Тилекке каршы келе албайм</a>
+<p class="sf" id="thx" style="margin:24px 0 0;font-size:20px;font-style:italic;color:var(--bu);min-height:1.5em"></p></div>
+</section>
+
+<section class="sec end">
+<svg class="band" height="30" aria-hidden="true"><rect width="100%" height="30" fill="url(#kb)"/></svg>
+<div class="rv">
+<svg width="130" height="86" viewBox="0 0 120 80" fill="none" stroke="#E2C27F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;margin:0 auto 24px"><path d="M10 62C10 30 34 12 60 12s50 18 50 50M6 62h108M50 62V44a10 10 0 0 1 20 0v18M60 12V6M54 6h12M24 62c0-16 6-30 14-38M96 62c0-16-6-30-14-38"/></svg>
+<svg class="beat" width="30" height="28" viewBox="0 0 24 22" aria-hidden="true" fill="#E2C27F"><path d="M12 21C4 14 1 10.5 1 7a5 5 0 0 1 9-3l2 2 2-2a5 5 0 0 1 9 3c0 3.500-3 7-11 14z"/></svg>
+<p class="sf" style="margin:18px 0 0;font-size:20px;font-style:italic;line-height:1.6;max-width:340px">Келишиңизди чын жүрөктөн күтөбүз!</p>
+<div class="eb" style="margin-top:40px">ТОЙ ЭЭЛЕРИ</div>
+<div class="nm sc foil">Талантбек<br>&amp; Гулзада</div>
+</div>
+</section>
+</main>
+
+<script>
+(function(){
+var b=document.body,red=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.getElementById('seal').addEventListener('click',function(){
+b.classList.add('opening');
+setTimeout(function(){b.classList.add('opened');window.scrollTo(0,0);reveal()},red?150:3000);
+});
+function reveal(){
+var els=document.querySelectorAll('.rv');
+if(!('IntersectionObserver' in window)){for(var i=0;i<els.length;i++)els[i].classList.add('in');return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+for(var j=0;j<els.length;j++)io.observe(els[j]);
+}
+var G={
+'ravshan-gulzada':'Равшан & Гулзада',
+'abdiakim-shahzada':'Абдиаким жезде & Шахзада эже',
+'zhanabay-nurgul':'Жанабай аке & Нургүл жене',
+'kanzada-amina':'Канзада & Амина',
+'duyshon-gulzhamal':'Дүйшөн & Гүлжамал',
+'zhamilya-bektur':'Жамиля жене & Бектур'
+};
+function dec(k){if(k.indexOf('n=')!==0)return '';try{var x=k.slice(2).replace(/-/g,'+').replace(/_/g,'/');while(x.length%4)x+='=';return new TextDecoder().decode(Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})).trim()}catch(e){return ''}}
+function setGuest(){var q='';try{q=new URLSearchParams(location.search).get('m')||''}catch(e){}var k=location.hash.replace('#','');var g=document.getElementById('guest');if(g){var t=q.trim()||dec(k)||G[k]||'меймандар';g.textContent=t;var n=t.length;g.style.fontSize=n<=14?'':n<=22?'38px':n<=32?'32px':'27px'}rsvp()}
+var WA='';
+var SHEET='';
+function who(){var g=document.getElementById('guest').textContent;if(g!=='меймандар')return g;var i=document.getElementById('gn');return i?i.value.trim():''}
+function send(ans,msg,ev){if(!SHEET)return;ev.preventDefault();var n=who();if(!n){var i=document.getElementById('gn');alert('Аты-жөнүңүздү жазыңыз');if(i)i.focus();return}
+try{fetch(SHEET,{method:'POST',mode:'no-cors',body:new URLSearchParams({name:n,ans:ans})}).catch(function(){})}catch(e){}
+document.getElementById('thx').textContent=msg}
+document.getElementById('yes').addEventListener('click',function(e){send('Келет','Рахмат! Сизди чыдамсыздык менен күтөбүз 🌿',e)});
+document.getElementById('no').addEventListener('click',function(e){send('Келбейт','Рахмат, ак тилегиңиз үчүн чоң ыракмат 🤍',e)});
+function rsvp(){var g=document.getElementById('guest').textContent,n=g==='меймандар'?'':' ('+g+')',y=document.getElementById('yes'),o=document.getElementById('no');if(!y||!o)return;var gn=document.getElementById('gn');if(gn)gn.style.display=g==='меймандар'?'block':'none';y.href='https://wa.me/'+WA+'?text='+encodeURIComponent('Ассалому алейкум! Чакырууңуз үчүн чоң рахмат. 2-декабрдагы тойго кубанып келебиз 🌿'+n);o.href='https://wa.me/'+WA+'?text='+encodeURIComponent('Ассалому алейкум! Чакырууңуз үчүн чоң рахмат. Тилекке каршы келе албайбыз, бирок ак тилегибизди айтабыз 🤍'+n)}
+setGuest();window.addEventListener('hashchange',setGuest);
+function p(n){return n<10?'0'+n:''+n}
+function tick(){
+var l=Math.max(0,new Date(2026,11,2,0,0,0).getTime()-Date.now());
+var v={d:Math.floor(l/864e5),h:Math.floor(l/36e5)%24,m:Math.floor(l/6e4)%60,s:Math.floor(l/1e3)%60};
+for(var k in v){var e=document.getElementById(k);if(e)e.textContent=p(v[k])}
+}
+tick();setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>

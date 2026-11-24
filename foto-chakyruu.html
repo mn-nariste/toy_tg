@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ky"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Сүрөт-чакыруу жасоо</title>
+<link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<style>
+body{font-family:system-ui,sans-serif;max-width:920px;margin:0 auto;padding:16px;color:#3A1B20;background:#FBF6F0}
+h1{color:#6E1423;font-size:22px}
+label{display:block;margin:14px 0 4px;font-weight:600}
+textarea,input{width:100%;padding:10px;border:1px solid #c9a98f;border-radius:8px;font:inherit;box-sizing:border-box}
+textarea{width:100%;height:170px;padding:10px;border:1px solid #c9a98f;border-radius:8px;font:inherit;box-sizing:border-box}
+button{padding:8px 14px;margin:2px;border:0;border-radius:8px;background:#6E1423;color:#fff;font:inherit;font-size:14px;cursor:pointer}
+.g{background:#8a6d3b}.hint{font-size:13px;color:#666}
+#pv{max-width:100%;width:340px;height:auto;display:block;margin:16px 0;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+table{width:100%;border-collapse:collapse}td{padding:7px;border-bottom:1px solid #e5d3c5;font-size:14px}
+</style></head><body>
+<h1>Сүрөт-чакыруу жасоо</h1>
+<div class="hint">WhatsApp'ы жоктор үчүн: ар бир конокко аты жазылган сүрөт (PNG) даярдалат. Аны Telegram, SMS, Instagram аркылуу жөнөтсө же басып чыгарса болот.</div>
+<label for="site">Сайттын дареги (GitHub шилтемеси)</label>
+<input id="site" placeholder="https://СИЗДИН-АТ.github.io/РЕПО/">
+<label style="font-weight:400;margin:8px 0"><input type="checkbox" id="short" checked style="width:auto"> Кыска шилтеме (сайт/#n=0JTSr9C5...), index.html'ди өзгөртүүнүн кереги жок</label>
+<label for="names">Коноктор (ар бир сапка бир чакыруу)</label>
+<textarea id="names">Абдиаким жезде & Шахзада эже
+Дүйшөн & Гүлжамал
+Жамиля жене & Бектур</textarea>
+<p><button id="go">Тизмени жаңылоо</button>
+<button class="g" id="gen">Аты жок (жалпы) сүрөт жүктөө</button>
+<button class="g" id="zip">Баарын ZIP кылып жүктөө</button>
+<button class="g" id="csv">Шилтемелерди CSV (Excel) кылып жүктөө</button>
+<button class="g" id="cpall">Бардык шилтемелерди көчүрүү</button></p>
+<div id="st" class="hint"></div>
+<canvas id="pv" width="1080" height="1620"></canvas>
+<table id="t"></table>
+<script>
+var W=1080,H=1620,$=function(i){return document.getElementById(i)};
+function fits(x,t,s,w){x.font=s+'px "Marck Script",cursive';return x.measureText(t).width<=w}
+function plaque(x,i){var r=30;x.beginPath();x.moveTo(150+i,640);x.arc(540,640,390-i,Math.PI,0);x.lineTo(930-i,1360-i-r);x.quadraticCurveTo(930-i,1360-i,930-i-r,1360-i);x.lineTo(150+i+r,1360-i);x.quadraticCurveTo(150+i,1360-i,150+i,1360-i-r);x.closePath()}
+function T(x,t,y,font,col,sp){x.font=font;x.fillStyle=col;x.textAlign='center';x.letterSpacing=(sp||0)+'px';x.fillText(t,W/2,y);x.letterSpacing='0px'}
+function wrap(x,t,mw){var w=t.split(' '),l=[],c='';w.forEach(function(s){var n=c?c+' '+s:s;if(x.measureText(n).width>mw&&c){l.push(c);c=s}else c=n});l.push(c);return l}
+function draw(name){
+  var c=document.createElement('canvas');c.width=W;c.height=H;var x=c.getContext('2d');
+  var g=x.createRadialGradient(W/2,0,60,W/2,500,1300);g.addColorStop(0,'#F3E1D3');g.addColorStop(.6,'#FBF6F0');g.addColorStop(1,'#FBF6F0');
+  x.fillStyle=g;x.fillRect(0,0,W,H);
+  x.strokeStyle='#B8893A';x.lineWidth=3;x.strokeRect(40,40,W-80,H-80);x.lineWidth=1.5;x.strokeRect(58,58,W-116,H-116);
+  x.fillStyle='#B8893A';[[58,58],[W-58,58],[58,H-58],[W-58,H-58]].forEach(function(p){x.save();x.translate(p[0],p[1]);x.rotate(Math.PI/4);x.fillRect(-9,-9,18,18);x.restore()});
+  // бордо плакетка
+  var pg=x.createRadialGradient(540,260,40,540,700,800);pg.addColorStop(0,'#8E1F32');pg.addColorStop(.55,'#6E1423');pg.addColorStop(1,'#4A0C18');
+  x.save();x.shadowColor='rgba(74,12,24,.4)';x.shadowBlur=50;x.shadowOffsetY=20;plaque(x,0);x.fillStyle=pg;x.fill();x.restore();
+  plaque(x,22);x.strokeStyle='rgba(226,194,127,.85)';x.lineWidth=2;x.stroke();
+  x.beginPath();x.arc(540,350,44,0,7);x.strokeStyle='#E2C27F';x.lineWidth=2;x.stroke();
+  T(x,'Т&Г',362,'34px "Marck Script",cursive','#E2C27F');
+  T(x,'ҮЙ ТОЙ & УУЛ ТОЙ',470,'600 28px "Noto Serif",serif','#E2C27F',8);
+  T(x,'Урматтуу',545,'italic 34px "Noto Serif",serif','#F3DDC9');
+  // аты
+  var L=[name],s=44,i;
+  for(var z=120;z>=60;z-=4){if(fits(x,name,z,620)){s=z;break}}
+  if(!fits(x,name,s,620)||s<60){i=name.indexOf('&');if(i>0){var a=name.slice(0,i+1).trim(),b=name.slice(i+1).trim();for(z=84;z>=44;z-=4){if(fits(x,a,z,620)&&fits(x,b,z,620)){L=[a,b];s=z;break}}}}
+  var y0=L.length>1?665:700;
+  L.forEach(function(t,k){T(x,t,y0+k*(s*.95),s+'px "Marck Script",cursive','#FFF3E0')});
+  // текст
+  x.font='italic 32px "Noto Serif",serif';x.textAlign='center';
+  var ln=wrap(x,'Сизди үй той жана уул тойубуздун кубанычына шерик болууга чакырабыз',620);
+  ln.forEach(function(t,k){T(x,t,850+k*46,'italic 32px "Noto Serif",serif','#F8EBDD')});
+  T(x,'02 · 12 · 26',1040,'600 78px "Noto Serif",serif','#E2C27F',8);
+  T(x,'2-ДЕКАБРЬ · СРЕДА',1098,'600 26px "Noto Serif",serif','#F8EBDD',8);
+  x.strokeStyle='#E2C27F';x.lineWidth=1.5;x.beginPath();x.moveTo(380,1150);x.lineTo(510,1150);x.moveTo(570,1150);x.lineTo(700,1150);x.stroke();
+  x.fillStyle='#E2C27F';x.save();x.translate(540,1150);x.rotate(Math.PI/4);x.fillRect(-7,-7,14,14);x.restore();
+  T(x,'ТОЙ ЭЭЛЕРИ',1215,'600 22px "Noto Serif",serif','#E2C27F',6);
+  T(x,'Талантбек & Гулзада',1290,'58px "Marck Script",cursive','#FFF3E0');
+  // төмөнкү маалымат
+  T(x,'ДАРЕГИ: Ош, Каратай айылы,',1465,'600 27px "Noto Serif",serif','#6E1423');
+  T(x,'Абдуллаев Жума көчөсү, 8-үй',1510,'600 27px "Noto Serif",serif','#6E1423');
+  return c;
+}
+var names=[];
+var TR={а:'a',б:'b',в:'v',г:'g',д:'d',е:'e',ё:'yo',ж:'zh',з:'z',и:'i',й:'y',к:'k',л:'l',м:'m',н:'n',о:'o',п:'p',р:'r',с:'s',т:'t',у:'u',ф:'f',х:'h',ц:'ts',ч:'ch',ш:'sh',щ:'sh',ъ:'',ы:'y',ь:'',э:'e',ю:'yu',я:'ya',ң:'n',ү:'u',ө:'o'};
+function tr(s){return s.toLowerCase().split('').map(function(c){return TR[c]!==undefined?TR[c]:c}).join('')}
+var SL={};
+function slugs(){SL={};var used={};names.forEach(function(n){if(SL[n])return;var p=n.split('&').map(function(a){return a.trim().split(/\s+/)[0]||''}).filter(Boolean).join('-');var s=tr(p).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'guest';var b=s,k=2;while(used[s])s=b+'-'+k++;used[s]=1;SL[n]=s})}
+function gmapText(){parse();return names.filter(function(n,i){return names.indexOf(n)===i}).map(function(n){return "'"+SL[n]+"':'"+n.replace(/\\/g,'\\\\').replace(/'/g,"\\'")+"'"}).join(',\n')}
+function parse(){names=$('names').value.split('\n').map(function(s){return s.split(';')[0].trim()}).filter(Boolean);slugs()}
+function fname(n,i){return String(i+1).padStart(3,'0')+'_'+n.replace(/[\\\/:*?"<>|&]/g,'').replace(/\s+/g,' ').trim()+'.png'}
+function b64(n){var u=new TextEncoder().encode(n),r='';u.forEach(function(c){r+=String.fromCharCode(c)});return btoa(r).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
+function lnk(n){var b=$('site').value.trim().replace(/[?#].*$/,'');if(b&&b.slice(-1)!=='/'&&!/\.html?$/i.test(b))b+='/';if($('short').checked)return b+'#n='+b64(n);return b+'?m='+encodeURIComponent(n)}
+function copy(t){if(navigator.clipboard&&window.isSecureContext){return navigator.clipboard.writeText(t).catch(function(){prompt('Көчүрүңүз:',t)})}prompt('Көчүрүңүз:',t);return Promise.resolve()}
+function csvText(){parse();return '\ufeff'+'Аты-жөнү;Шилтеме\r\n'+names.map(function(n){return '"'+n.replace(/"/g,'""')+'";'+lnk(n)}).join('\r\n')}
+function blob(c){return new Promise(function(r){c.toBlob(r,'image/png')})}
+function save(b,n){var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=n;a.click()}
+function show(n){var c=draw(n),p=$('pv'),q=p.getContext('2d');q.clearRect(0,0,W,H);q.drawImage(c,0,0)}
+function list(){
+  parse();var t=$('t');t.innerHTML='';
+  names.forEach(function(n,i){
+    var tr=document.createElement('tr'),a=document.createElement('td'),b=document.createElement('td');
+    a.textContent=n;a.style.fontWeight='600';
+    var v=document.createElement('button');v.className='g';v.textContent='Көрүү';v.onclick=function(){show(n)};
+    var d=document.createElement('button');d.textContent='PNG жүктөө';d.onclick=function(){blob(draw(n)).then(function(bl){save(bl,fname(n,i))})};
+    var l=document.createElement('button');l.className='g';l.textContent='Шилтеме көчүрүү';l.onclick=function(){copy(lnk(n)).then(function(){l.textContent='Көчүрүлдү ✓';setTimeout(function(){l.textContent='Шилтеме көчүрүү'},1500)})};
+    b.appendChild(v);b.appendChild(d);b.appendChild(l);tr.appendChild(a);tr.appendChild(b);t.appendChild(tr);
+  });
+  $('st').textContent='Жалпы: '+names.length+' чакыруу';
+  show(names[0]||'меймандар');
+}
+$('go').onclick=list;
+
+$('csv').onclick=function(){save(new Blob([csvText()],{type:'text/csv;charset=utf-8'}),'shilteme.csv')};
+$('cpall').onclick=function(){parse();copy(names.map(function(n){return n+'\t'+lnk(n)}).join('\n')).then(function(){$('st').textContent='Баары көчүрүлдү ✓'})};
+$('gen').onclick=function(){blob(draw('меймандар')).then(function(b){save(b,'chakyruu_jalpy.png')})};
+$('zip').onclick=async function(){
+  parse();if(!names.length)return;var z=new JSZip();
+  for(var i=0;i<names.length;i++){$('st').textContent='Даярдалууда: '+(i+1)+' / '+names.length;z.file(fname(names[i],i),await blob(draw(names[i])));await new Promise(function(r){setTimeout(r,0)})}
+  z.file('chakyruu_jalpy.png',await blob(draw('меймандар')));
+  z.file('shilteme.csv',csvText());
+  $('st').textContent='ZIP түзүлүүдө...';
+  save(await z.generateAsync({type:'blob'}),'chakyruular.zip');$('st').textContent='Даяр ✓ ('+names.length+' сүрөт)';
+};
+Promise.all([document.fonts.load('80px "Marck Script"','Абвг'),document.fonts.load('italic 32px "Noto Serif"','Абвг'),document.fonts.load('600 32px "Noto Serif"','Абвг')]).catch(function(){}).then(list);
+</script></body></html>
